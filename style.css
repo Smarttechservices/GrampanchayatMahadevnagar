@@ -375,7 +375,7 @@ footer {
 
 .welcome-section-about {
     background-color: white;
-      padding: 80px 20px;
+      padding: 30px 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -416,6 +416,8 @@ footer {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
+    background-color: rgb(245, 225, 200);
+    padding: 15px 0px;
 }
 
 .section-header-organisation {
@@ -1011,7 +1013,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
   padding: 10px;              /* background साठी padding */
   background-color: #2c3e50;  /* 👈 तुला हवे ते colour (उदा. dark blue/green) */
   border-radius: 8px;         /* थोडे गोल कोपरे */
@@ -1438,6 +1440,9 @@ footer {
 
 /*---------------------------------------------------------------------------End of Responsive styles for Mobile View---------------------------------------------------------------------------  */
  
+
+
+
 
 
 

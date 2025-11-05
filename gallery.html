@@ -155,6 +155,172 @@
 }
 
 
+
+
+/* ------------------------------Start - Admin Login Loader---------------------------------------------------- */
+
+
+
+
+/* OVERLAYS (Loader + Error) */
+.overlay {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  z-index: 5;
+  border-radius: 8px;
+}
+
+/* Loader text */
+.overlay p {
+  margin-top: 10px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Error style */
+.overlay.error {
+  color: red;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+
+
+/*Till Login Loader  */
+
+
+.lds-roller {
+  /* change color here */
+  color: #46dff0
+}
+.lds-roller,
+.lds-roller div,
+.lds-roller div:after {
+  box-sizing: border-box;
+}
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7.2px;
+  height: 7.2px;
+  border-radius: 50%;
+  background: var(--muted);
+  margin: -3.6px 0 0 -3.6px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 62.62742px;
+  left: 62.62742px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 67.71281px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 70.90963px;
+  left: 48.28221px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 70.90963px;
+  left: 31.71779px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 67.71281px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 62.62742px;
+  left: 17.37258px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12.28719px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(61, 61, 61, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* ------------------------------End - Admin Login Loader---------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 
     <meta name="google" content="notranslate">
@@ -179,7 +345,7 @@
 
       <div class="top-bar-first">
     <div class="contact-info-one">
-      <span>📧 gmahadevnagar@gmail.com &nbsp;&nbsp; | &nbsp;&nbsp; 📞 +91 1234567890</span>
+      <span>📧 nsktrambak@gmail.com &nbsp;&nbsp; | &nbsp;&nbsp; 📞 +91 1234567890</span>
       
       
     </div>
@@ -225,6 +391,27 @@
 
         
         </div>
+
+
+          
+      <!-- Loader Overlay -->
+      <div id="galleryLoader" class="overlay">
+        <div class="spinner-border text-primary" role="status"></div>
+        <!-- <div class="lds-roller">    
+          <div></div><div></div><div></div><div></div>
+          <div></div><div></div><div></div><div></div>
+        </div> -->
+        <p>लोडिंग इमजेस...</p>
+      </div>
+
+      <!-- Error Overlay -->
+      <div id="galleryError" class="overlay error">
+        इमेज लोड करण्यात अडचण आली.<br>पेज एकदा रीफ्रेश करून प्रयत्न करा.
+      </div>
+    </div>
+
+
+
     </section>
 
 
@@ -338,7 +525,7 @@
     <!-- Column 4 -->
     <div class="footer-col">
       <h3>पत्ता</h3>
-      <p>मु. पो. महादेवनगर, तालुक: त्र्यंबकेश्वर, जिल्हा: नाशिक <br>पिन : 422000</p>
+      <p>मु. पो. महादेवनगर, तालुका: त्र्यंबकेश्वर, जिल्हा: नाशिक <br>पिन : 422000</p>
       <p><strong>GET DIRECTIONS</strong></p>
       <p>मोबाईल : +91 1234567890</p>
       <p><strong>029383</strong></p>
@@ -359,10 +546,10 @@
     </div>
   </footer>
 
-      
-    <script src="utils.js"></script>   
+    
+    <script src="utils.js"></script>  
     <script src="config.js"></script>
-    <script src="script.js"></script>   
+    <script src="script.js"></script>  
      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">      
      </script> <script src="lightbox-plus-jquery.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -428,139 +615,85 @@ document.addEventListener('DOMContentLoaded', () => {
         });
               
 
-/* ----------rendering gallery images with backend--------------- */
-
-
-
-    // Load Uploaded Images to the Gallery Section
-
-
-    async function loadGallery() {
-    try {
-        // Replace with your correct API URL
-        const apiPath = window.APP_CONFIG.apiBaseUrl;     
-        const resp = await fetchWithTimeout(apiPath + 'galleryImage', {}, 60000);
-       // const resp = await fetch(apiPath + 'galleryImage');
-        if (!resp.ok) {
-        console.error('Gallery fetch failed', resp.status, await resp.text());
-        return;
-        }
-        const images = await resp.json();
-        renderGallery(images);
-    } catch (err) {
-        console.error('Error fetching gallery', err);
-    }
-    }
-
-    
-
-/*----------------------below code according to Actual old  Api  design------------------------------------*/
-
-
-
-    function renderGallery(images) {
-    const galleryGrid = document.getElementById('galleryGrid');
-    if (!galleryGrid) {
-        console.error('No #galleryGrid element found');
-        return;
-    }
-
-    // Clear existing content
-    galleryGrid.innerHTML = '';
-
-    images.forEach(img => {
-        // img.filepath is something like "/gallery/unique-filename.jpg"
-        // Compose full URL if needed (for example, if your API is on another domain)
-        // const src = img.filepath; 
-        const apiImgPath = window.APP_CONFIG.apiImgUrl;
-        // const backendUrl = 'https://localhost:7235';
-        const src = `${apiImgPath}${img.filepath}`; 
-        const caption = img.caption || '';
-        const title = img.title || '';
-
-        // Create anchor element for lightbox
-        const a = document.createElement('a');
-        a.href = src;
-        a.setAttribute('data-lightbox', 'models');
-        a.setAttribute('data-title', caption);
-
-        // Create image element
-        const imageEl = document.createElement('img');
-        imageEl.classList.add('gimg');
-        imageEl.src = src;
-        imageEl.alt = title;
-
-        // Append
-        a.appendChild(imageEl);
-        galleryGrid.appendChild(a);
-    });
-
-    //    if (window.lightbox) {
-    //     lightbox.init();
-    // }
-
-    }
-
-
-
-
 
 /*----------------------below code according to Actual new frontend Api  design------------------------------------*/
 
 
 
-// function renderGallery(images) {
-//     const galleryGrid = document.querySelector('.photo-grid'); // FIX 1
-//     if (!galleryGrid) {
-//         console.error('No .photo-grid element found');
-//         return;
-//     }
+// Call loadGallery on page load (or whenever needed)
+window.addEventListener('DOMContentLoaded', loadGallery);
 
-//     // Clear existing content
-//     galleryGrid.innerHTML = '';
+async function loadGallery() {
+  const galleryGrid = document.getElementById('galleryGrid');
+  const galleryLoader = document.getElementById('galleryLoader');
+  const galleryError = document.getElementById('galleryError');
 
-//     images.forEach((img, index) => {
-//         const src = img.filepath;  
-//         const caption = img.caption || '';
-//         const title = img.title || '';
+  // Reset states
+  galleryGrid.style.display = "none";
+  galleryError.style.display = "none";
+  galleryLoader.style.display = "flex";
 
-//         // Anchor tag
-//         const anchor = document.createElement('a');
-//         anchor.href = src;
-//         anchor.setAttribute('data-lightbox', 'gallery'); // FIX 2
-//         anchor.setAttribute('data-title', caption);
-//         anchor.setAttribute('data-aos', index % 2 === 0 ? 'fade-left' : 'fade-right'); // FIX 3
+  try {
+    const apiPath = window.APP_CONFIG.apiBaseUrl;
+    // const resp = await fetch(apiPath + 'galleryImage');
+    const resp = await fetchWithTimeout(apiPath + 'galleryImage', {}, 60000);
 
-//         // Overlay container
-//         const overlayDiv = document.createElement('div');
-//         overlayDiv.classList.add('img-overlay'); // FIX 4
 
-//         // Image element
-//         const imageEl = document.createElement('img');
-//         imageEl.src = src;
-//         imageEl.alt = title;
+    if (!resp.ok) throw new Error(`Server responded with ${resp.status}`);
 
-//         // Overlay icon
-//         const overlayIcon = document.createElement('div');
-//         overlayIcon.classList.add('overlay-icon'); // FIX 5
-//         overlayIcon.textContent = '+';
+    const images = await resp.json();
+    renderGallery(images);
 
-//         // Build structure
-//         overlayDiv.appendChild(imageEl);
-//         overlayDiv.appendChild(overlayIcon);
-//         anchor.appendChild(overlayDiv);  // FIX 6
-//         galleryGrid.appendChild(anchor);
+    galleryLoader.style.display = "none";
+    galleryGrid.style.display = "grid";
+  } catch (err) {
+     if (err.message === 'timeout') {
+    galleryError.textContent = "सर्वर चालू होत आहे. कृपया पेज रीफ्रेश करून प्रतीक्षा करा.";
+  }   
+    console.error('Error fetching gallery', err);
+    galleryLoader.style.display = "none";
+    galleryGrid.style.display = "none";
+    galleryError.style.display = "flex";
+  }
+}
 
-//     });
 
-    
-//          // ✅ Reinitialize lightbox so it picks up new anchors
-//         if (window.lightbox) {
-//             lightbox.init();
-//         }
+function renderGallery(images) {
+  const galleryGrid = document.getElementById('galleryGrid');
+  if (!galleryGrid) {
+    console.error('No #galleryGrid element found');
+    return;
+  }
 
-// }
+  galleryGrid.innerHTML = '';
 
+  images.forEach(img => {
+    const apiPath = window.APP_CONFIG.apiImgUrl;
+    const src = apiPath + img.filepath;
+    const caption = img.caption || '';
+    const title = img.title || '';
+
+    // Create container div
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('gallery-item');
+
+    // Create anchor element for lightbox
+    const a = document.createElement('a');
+    a.href = src;
+    a.setAttribute('data-lightbox', 'models');
+    a.setAttribute('data-title', caption);
+
+    // Create image element
+    const imageEl = document.createElement('img');
+    imageEl.src = src;
+    imageEl.alt = title;
+
+    // Nest elements
+    a.appendChild(imageEl);
+    wrapper.appendChild(a);
+    galleryGrid.appendChild(wrapper);
+  });
+}
 
 
 
@@ -581,7 +714,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
      
 </body>
-
 </html>
-
-

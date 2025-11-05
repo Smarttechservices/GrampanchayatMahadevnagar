@@ -94,6 +94,69 @@
       padding: 6px;
     }
 
+    .section-container{
+    text-align:center;
+    padding:10px 0px;
+    margin: 0px 0px;
+    background:#fde9e2;   /* full width background color */
+    width:100%;
+    }
+
+    .sectionHead
+    {
+      margin-top: 18px;
+    }
+
+    h2{
+      font-size:28px;
+    color:#4b1e00;
+    font-weight:700;
+    padding:12px 25px;
+         /* Light peach background */
+    display:inline-block;    /* Shrinks background to text width */
+    border-radius:12px;      /* Smooth rounded corners */
+    margin-bottom:10px;
+    }
+
+    p.subtitle{
+        color:#5e3c2b;
+        font-size:18px;
+        margin-bottom:40px;
+    }
+
+    .gallery-wrapper{
+        display:flex;
+        justify-content:center;
+        gap:35px;
+        flex-wrap:wrap;
+        margin: 20px 0px;
+    }
+
+    .gallery-card{
+        background:white;
+        border-radius:14px;
+        overflow:hidden;
+        width:515px;
+        box-shadow:0 4px 14px rgba(0,0,0,0.15);
+        transition:.3s;
+    }
+
+    .gallery-card:hover{
+        transform:scale(1.02);
+    }
+
+    .gallery-card img{
+        width:100%;
+        height:auto;
+        /* object-fit:contain; */
+        
+         object-fit:cover;  /* Adjust image to fill nicely */
+        display:block;
+        background:#fff;
+        padding:8px;
+    }
+
+
     
     </style>
 
@@ -116,7 +179,7 @@
 
       <div class="top-bar-first">
     <div class="contact-info-one">
-      <span>📧 gmahadevnagar@gmail.com &nbsp;&nbsp; | &nbsp;&nbsp; 📞 +91 1234567890</span>
+      <span>📧 nsktrambak@gmail.com &nbsp;&nbsp; | &nbsp;&nbsp; 📞 +91 1234567890</span>
       
       
     </div>
@@ -151,11 +214,48 @@
 
     <!-- <section class="welcome-section-schemes"> -->
             <section id="schemes">
-      <div class="section-title-schemes"><h2 data-i18n="schemesTitle">ग्रामपंचायत योजना</h2></div>
+      <div class="section-title-schemes"><h2 data-i18n="schemesTitle" data-aos="fade-down">ग्रामपंचायत योजना</h2></div>
+
+      <div class="section-container">
+          <h2 class="sectionHead" data-aos="fade-up">मुख्यमंत्री समृद्ध पंचायतराज अभियान - शुभारंभ</h2>
+          <p class="subtitle" data-aos="fade-up">मुख्यमंत्री समृद्ध पंचायतराज अभियान अंतर्गत आयोजित कार्यशाळा आणि ग्रामसभेचे क्षणचित्रे</p>
+
+          <!-- <div class="gallery-wrapper">
+
+              <div class="gallery-card" data-aos="fade-right">
+                  <img src="images/Mukhyamantri_Samruddha_Panchayatraj_Yojana.jpg" alt="Yojana image">
+              </div>
+
+              <div class="gallery-card" data-aos="fade-left">
+                  <img src="your_image_2.jpg" alt="Workshop Image 2">
+              </div>
+
+          </div> -->
+      </div>
+
 
       <div id="schemes-completed">
+
+        <div class="gallery-wrapper">
+
+              <div class="gallery-card" data-aos="fade-right">
+                  <img src="images/Mukhyamantri_Samruddha_Panchayatraj_Yojana.jpg" alt="Yojana image">
+              </div>
+
+              <div class="gallery-card" data-aos="fade-left">
+                  <img src="your_image_2.jpg" alt="Workshop Image 2">
+              </div>
+
+          </div>
+
+
+
         <!-- <h3 data-i18n="schemesCompleted">Completed Schemes</h3> -->
         <div class="cards" id="completedCards">
+
+
+          
+
           <!-- Sample cards - replace images/text as needed -->
           <article data-aos="fade-right" class="card">
             <!-- <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=800&q=60" alt="Scheme image"> -->
@@ -236,20 +336,7 @@
               <input type="number" class="form-control" id="complainterNumber" placeholder="आपला मोबाईल नंबर भरा" required>
             </div>
 
-            <!-- <div class="mb-3">
-              <label class="form-label required">तक्रार / सूचना प्रकार :</label>
-              <select class="form-control" id="reasonDropdown">
-                <option value="">-- निवडा --</option>
-                <option value="complaint">पाणी प्रश्न</option>
-                <option value="suggestion">स्वच्छता</option>
-                <option value="complaint">गटार चेंबर</option>
-                <option value="suggestion">रस्ते वाहतूक</option>
-                <option value="complaint">पथ दिवे</option>
-                <option value="suggestion">घंटा गाडी</option>
-                <option value="complaint">इतर</option>
-                
-              </select>
-            </div> -->
+
 
             <div class="mb-3">
               <label class="form-label">तक्रार / सूचना निवडा :</label>
@@ -336,7 +423,7 @@
     <!-- Column 4 -->
     <div class="footer-col">
       <h3>पत्ता</h3>
-      <p>मु. पो. महादेवनगर, तालुक: त्र्यंबकेश्वर, जिल्हा: नाशिक <br>पिन : 422000</p>
+      <p>मु. पो. महादेवनगर, तालुका: त्र्यंबकेश्वर, जिल्हा: नाशिक <br>पिन : 422000</p>
       <p><strong>GET DIRECTIONS</strong></p>
       <p>मोबाईल : +91 1234567890</p>
       <p><strong>029383</strong></p>

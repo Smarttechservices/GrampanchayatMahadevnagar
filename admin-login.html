@@ -151,6 +151,166 @@
       padding: 6px;
     }
 
+
+
+    
+
+/* ------------------------------Start - Admin Login Loader---------------------------------------------------- */
+
+
+
+
+/* OVERLAYS (Loader + Error) */
+.overlay {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  z-index: 5;
+  border-radius: 8px;
+}
+
+/* Loader text */
+.overlay p {
+  margin-top: 10px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Error style */
+.overlay.error {
+  color: red;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+
+
+/*Till Login Loader  */
+
+
+.lds-roller {
+  /* change color here */
+  color: #46dff0
+}
+.lds-roller,
+.lds-roller div,
+.lds-roller div:after {
+  box-sizing: border-box;
+}
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7.2px;
+  height: 7.2px;
+  border-radius: 50%;
+  background: #46dff0;
+  margin: -3.6px 0 0 -3.6px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 62.62742px;
+  left: 62.62742px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 67.71281px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 70.90963px;
+  left: 48.28221px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 70.90963px;
+  left: 31.71779px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 67.71281px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 62.62742px;
+  left: 17.37258px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12.28719px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(61, 61, 61, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* ------------------------------End - Admin Login Loader---------------------------------------------------- */
+
+
+
+
+
+
     
     </style>
 
@@ -175,7 +335,7 @@
 
     <header class="site-header">
         <h1 data-aos="fade-down"><strong>ग्रामपंचायत महादेवनगर</strong></h1>
-        <p data-aos="fade-up"><strong>तालुक- येवला,  जिल्हा - नाशिक</strong> </p>
+        <p data-aos="fade-up"><strong>तालुका- येवला,  जिल्हा - नाशिक</strong> </p>
     </header>
 
    
@@ -188,12 +348,20 @@
 
       <label>पासवर्ड *</label>
       <input type="password" id="password" placeholder="पासवर्ड टाका" required>
+      <span id="loginMessage" class="text-danger mt-2" style="display:block; font-size: 0.9rem;"></span>
 
       
 
-      <button type="submit" class="gp-btn">साईन इन</button>
+      <button type="submit" class="gp-btn" id="loginbtn">साईन इन</button>
     </form>
   </div>
+
+      <div id="loaderOverlay" class="loader-overlay" style="display: none;">
+      <div class="lds-roller">
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+      </div>
+    </div>  
 
 
 
@@ -231,46 +399,93 @@
      //--------------------------------------Api Implementation-----------------------------------
 
 
+    
+  // Admin Login Implementation
+  const adminLoginForm = document.getElementById('adminLoginForm');
+  const loaderOverlay = document.getElementById('loaderOverlay');
+  const message = document.getElementById('loginMessage');
+  const loginBtn = document.querySelector('#loginbtn');
+  // const loginModalEl = document.getElementById('loginModal');
 
-    const adminLoginForm = document.getElementById('adminLoginForm');
-    if (adminLoginForm) {
-      adminLoginForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+  // if (!loginModalEl) {
+  //   console.warn("loginModal element not found");
+  // }
+
+  // 1) Submit/login handler (keeps your loader + fetch logic)
+  if (adminLoginForm) {
+    adminLoginForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      message.textContent = "";
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!username || !password) {
+        message.textContent = "Please Enter Both || Username and Password.";
+        return;
+      }
+
+      // Show loader & disable form controls
+      if (loaderOverlay) loaderOverlay.style.display = "flex";
+      if (loginBtn) loginBtn.disabled = true;
+
+      try {
         const apiPath = window.APP_CONFIG.apiBaseUrl;
-     //   const resp = await fetch( apiPath + 'admin/login', {
-     //     method: 'POST',
-      //    headers: { 'Content-Type': 'application/json' },
-      //    body: JSON.stringify({ username, password })
-      //  });
-
-       const resp = await fetchWithTimeout(apiPath + 'admin/login', {
+        const resp = await fetchWithTimeout(apiPath + 'admin/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          // body: JSON.stringify({ username, password })
           body: JSON.stringify({ username, password })}, 60000);
+        // });
 
         if (!resp.ok) {
-          message.style.color = "red";
-          message.textContent = "Invalid credentials, Login Failed!";
+          const errorData = await resp.json().catch(() => ({}));
+          message.textContent = errorData.message || "Invalid credentials, login failed!";
           return;
         }
 
         const data = await resp.json();
-        localStorage.setItem('token', data.token);
-      //  window.location.href = '/AdminDashboard.html';
-         window.location.href = window.location.origin + '/GrampanchayatMahadevnagar/AdminDashboard.html';
-      });
-    }
+        localStorage.setItem('adminToken', data.token);
+
+        // success: open dashboard in new tab
+        window.open("Admindashboard.html", "_blank");
+
+       
+      } catch (error) {
+        // message.textContent = "Server not responding. Please try again later.";
+        // console.error("Login error:", error);
+
+          if (error.message === 'timeout') {
+            message.textContent = "Server is starting up. Please wait a minute and try again.";
+          } else {
+            message.textContent = "Server not responding.Please try again later";
+          }
+          console.error("Login error:", error);
+
+      } finally {
+        // always clear loader / enable button (closing will also reset but keep this safe)
+        if (loaderOverlay) loaderOverlay.style.display = "none";
+        if (loginBtn) loginBtn.disabled = false;
+      }
+    });
+  }
+
+
+  // 3) Optional nicety: clear message when user focuses any input (so error disappears as they edit)
+  const inputs = adminLoginForm ? adminLoginForm.querySelectorAll('input') : [];
+  inputs.forEach(inp => {
+    inp.addEventListener('focus', () => {
+      if (message) message.textContent = "";
+    });
+  });
+
+
+
+
+
+
 
 
 
      </script>
 </body>
-
 </html>
-
-
-
-

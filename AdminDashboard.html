@@ -71,48 +71,6 @@
   right: 1rem;
 }
 
-/*---------------------------------------------------------------------------------------*/
-/* 
-#galleryListContainer {
-  padding: 10px;
-}
-
-.gallery-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.gallery-card {
-  width: 200px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  background: #fff;
-}
-
-.gallery-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.gallery-card img {
-  width: 100%;
-  height: 150px;          
-  object-fit: cover;       
-}
-
-.gallery-card .caption {
-  background: #000;
-  color: #fff;
-  text-align: center;
-  padding: 6px;
-  font-size: 14px;
-  font-weight: 500;
-} */
 
 
 /*---------------------------------------------------------------------------------------*/
@@ -211,7 +169,7 @@
 
     <header class="site-header">
         <h1 data-aos="fade-down"><strong>ग्रामपंचायत महादेवनगर</strong></h1>
-        <p data-aos="fade-up"><strong>तालुक- येवला,  जिल्हा - नाशिक</strong> </p>
+        <p data-aos="fade-up"><strong>तालुका- येवला,  जिल्हा - नाशिक</strong> </p>
     </header>
 
    
@@ -220,25 +178,26 @@
         <section>
             <h2 class="section-title-dashboard">Admin Dashboard</h2>
 
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal" id="btnUpload">Upload Gallery Image</button>
-            <button id="btnOpenDeleteModal" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteGalleryModal" >Delete Image</button>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#noticeModal" id="btnNotice">Add Notice</button>
-            <button id="btnOpenNoticeDeleteModal" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNoticeModal" >Delete Notice</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal" id="btnUpload">गॅलरी प्रतिमा अपलोड करा</button>
+            <button id="btnOpenDeleteModal" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteGalleryModal" >प्रतिमा हटवा</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#noticeModal" id="btnNotice"> नवीन सूचना टाका</button>
+            <button id="btnOpenNoticeDeleteModal" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNoticeModal" >सूचना हटवा</button>
+
 
             <div id="complaintTableSection">
-                <h3 class="text-center" style="margin-top: 30px;">Submitted Complaints</h3>
+                <h3 class="text-center" style="margin-top: 30px;">सादर केलेल्या तक्रारी</h3>
                 <div class="mobile-scroll">
                 <table class="table table-striped" style="margin-right:260px;" border="2" id="complaintsTable">
                         <thead class="thead-dark">
                         <tr>
-                            <th>Action</th>
-                            <th>Id</th>
-                            <th>Status</th>
-                            <th>Name</th>
-                            <th>Number</th>
-                            <th>Reason</th>
-                            <th>Description</th>
-                            <th>Created Date</th>
+                            <th>कृती</th>
+                            <th>अ. क्र.</th>
+                            <th>स्थिती</th>
+                            <th>नाव </th>
+                            <th>मोबाईल क्रमांक</th>
+                            <th>कारण</th>
+                            <th>वर्णन</th>
+                            <th>निर्मिती दिनांक</th>
                         </tr>
                         </thead>
                         <tbody>

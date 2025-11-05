@@ -87,9 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadGallery() {
     try {
         // Replace with your correct API URL
-        const apiPath = window.APP_CONFIG.apiBaseUrl;        
-        const resp = await fetchWithTimeout(apiPath + 'galleryImage', {}, 60000);
-      //  const resp = await fetch( apiPath + 'galleryImage');
+        const apiPath = window.APP_CONFIG.apiBaseUrl;
+        const resp = await fetch( apiPath + 'galleryImage');
         if (!resp.ok) {
         console.error('Gallery fetch failed', resp.status, await resp.text());
         return;
@@ -188,7 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const apiPath = window.APP_CONFIG.apiBaseUrl;
     const resp = await fetch(apiPath + 'complaint/submit', {
-    // const resp = await fetch('https://localhost:7235/api/complaint/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ Name: name, Number : number, Reason : selectedReason, Description: msg })
@@ -215,8 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadNotices() {
   try {
     const apiPath = window.APP_CONFIG.apiBaseUrl;
- //   const response = await fetch(apiPath + "Notice");
-    const response = await fetchWithTimeout(apiPath + "Notice", {}, 60000);
+    const response = await fetch(apiPath + "Notice");
     const notices = await response.json();
     const noticeCount = 0;
 
@@ -250,57 +247,6 @@ window.addEventListener("DOMContentLoaded", loadNotices);
 
 
 
-/* New design of js code for api rendering of images-------------------*/ 
-
-// function renderGallery(images) {
-//     const galleryGrid = document.querySelector('.photo-grid'); // FIX 1
-//     if (!galleryGrid) {
-//         console.error('No .photo-grid element found');
-//         return;
-//     }
-
-//     // Clear existing content
-//     galleryGrid.innerHTML = '';
-
-//     images.forEach((img, index) => {
-//         const src = img.filepath;  
-//         const caption = img.caption || '';
-//         const title = img.title || '';
-
-//         // Anchor tag
-//         const anchor = document.createElement('a');
-//         anchor.href = src;
-//         anchor.setAttribute('data-lightbox', 'gallery'); // FIX 2
-//         anchor.setAttribute('data-title', caption);
-//         anchor.setAttribute('data-aos', index % 2 === 0 ? 'fade-left' : 'fade-right'); // FIX 3
-
-//         // Overlay container
-//         const overlayDiv = document.createElement('div');
-//         overlayDiv.classList.add('img-overlay'); // FIX 4
-
-//         // Image element
-//         const imageEl = document.createElement('img');
-//         imageEl.src = src;
-//         imageEl.alt = title;
-
-//         // Overlay icon
-//         const overlayIcon = document.createElement('div');
-//         overlayIcon.classList.add('overlay-icon'); // FIX 5
-//         overlayIcon.textContent = '+';
-
-//         // Build structure
-//         overlayDiv.appendChild(imageEl);
-//         overlayDiv.appendChild(overlayIcon);
-//         anchor.appendChild(overlayDiv);  // FIX 6
-//         galleryGrid.appendChild(anchor);
-//     });
-// }
-
-
-
-
-
-
 /* -------------------------------------------------------End - rendering gallery images with backend------------------------------------------------------------------------------------------ */
 
 
@@ -311,59 +257,3 @@ window.addEventListener("DOMContentLoaded", loadNotices);
 
 
 
-/*------------------------------------------------------ small icon of navbar on mobile screen------------------------------------------------------ */
-
-// const toggle = document.querySelector('.mobile-nav-toggle');
-// const menu = document.querySelector('nav ul');
-
-// toggle.addEventListener('click', () => {
-//   menu.classList.toggle('show');
-// });
-
-// const toggle = document.querySelector('.mobile-nav-toggle');
-// const menu = document.querySelector('nav ul');
-// const menuLinks = document.querySelectorAll('nav ul li a');
-
-// menu.classList.toggle('hide');
-// // Toggle menu on hamburger click
-
-// if (toggle && menu) {
-//   toggle.addEventListener('click', () => {
-//     menu.classList.toggle('show');
-//   });
-// }
-
-// // Close menu when any link is clicked
-// menuLinks.forEach(link => {
-//   link.addEventListener('click', () => {
-//     menu.classList.remove('show');   // hide the menu
-//   });
-// });
-
-
-
-/*------------------------------------------------------ small icon of navbar on mobile screen------------------------------------------------------ */
-
-
-// const modal = document.getElementById("takrarModal");
-// const openBtn = document.getElementById("openTakrar");
-// const closeX = document.querySelector(".modal .close");
-// const closeBtn = document.querySelector(".close-btn");
-
-//     // Open
-// openBtn.onclick = (e) => {
-//       e.preventDefault();
-//       modal.style.display = "flex";
-//     };
-
-//     // Close (X)
-//     closeX.onclick = () => modal.style.display = "none";
-
-//     // Close (button)
-//     closeBtn.onclick = () => modal.style.display = "none";
-
-//     // Close on outside click
-//     window.onclick = (e) => {
-//       if (e.target === modal) modal.style.display = "none";
-
-//     };
