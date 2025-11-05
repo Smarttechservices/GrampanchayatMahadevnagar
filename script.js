@@ -87,9 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadGallery() {
     try {
         // Replace with your correct API URL
-        const apiPath = window.APP_CONFIG.apiBaseUrl;
-        const resp = await fetch( apiPath + 'galleryImage');
-        // const resp = await fetch('https://localhost:7235/api/galleryImage');
+        const apiPath = window.APP_CONFIG.apiBaseUrl;        
+        const resp = await fetchWithTimeout(apiPath + 'galleryImage', {}, 60000);
+      //  const resp = await fetch( apiPath + 'galleryImage');
         if (!resp.ok) {
         console.error('Gallery fetch failed', resp.status, await resp.text());
         return;
@@ -215,7 +215,8 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadNotices() {
   try {
     const apiPath = window.APP_CONFIG.apiBaseUrl;
-    const response = await fetch(apiPath + "Notice");
+ //   const response = await fetch(apiPath + "Notice");
+    const response = await fetchWithTimeout(apiPath + "Notice", {}, 60000);
     const notices = await response.json();
     const noticeCount = 0;
 
@@ -364,4 +365,5 @@ window.addEventListener("DOMContentLoaded", loadNotices);
 //     // Close on outside click
 //     window.onclick = (e) => {
 //       if (e.target === modal) modal.style.display = "none";
+
 //     };
