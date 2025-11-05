@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="images/GramLogo.png" type="image/x-icon">
+    <title>ग्रामपंचायत महादेवनगर</title>
+   
+  <!--Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Font -->
+     <meta name="google" content="notranslate">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons (FontAwesome or similar) -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f0f0;
+            /* padding: 30px; */
+        }
+
+        .population-card {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+            .population-card h2 {
+                font-size: 18px;
+                color: #003366;
+                margin-bottom: 10px;
+                position: relative;
+                display: inline-block;
+                border-bottom: 3px solid orange;
+            }
+
+        .population-table {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            width: 150px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;  /* hover केल्यावर pointer दिसेल */
+        }
+
+        /* hover झाल्यावर bubble effect */
+        .population-table:hover {
+            transform: scale(1.1);  /* थोडा मोठा होईल */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* shadow वाढेल */
+        }
+
+        .pop-col {
+            flex: 1;
+        }
+
+            .pop-col:not(:last-child) {
+                border-right: 1px solid #ddd;
+            }
+
+            .pop-col img {
+                width: 36px;
+                height: 36px;
+                margin-bottom: 6px;
+            }
+
+        .pop-label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .pop-value {
+            font-size: 20px; /* Increase size */
+            font-weight: bold; /* Make bold */
+            color: #000; /* Darker color for better contrast (optional) */
+            margin-top: 5px;
+        }
+        .goog-te-combo {
+      font-size: 16px !important;
+      font-weight: bold !important;
+      padding: 6px;
+    }
+
+    
+    </style>
+
+    <meta name="google" content="notranslate">
+    <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'mr', // or 'mr' if your original site is in Marathi
+      includedLanguages: 'en,hi,mr', // ✅ Add 'mr' for Marathi
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
+</head>
+
+<body>
+
+      <div class="top-bar-first">
+    <div class="contact-info-one">
+      <span>📧 gmahadevnagar@gmail.com &nbsp;&nbsp; | &nbsp;&nbsp; 📞 +91 1234567890</span>
+      
+      
+    </div>
+    <div class="login-translate">
+    <a href="admin-login.html" class="gp-login" target="_blank">🧑‍💼 ग्रामपंचायत लॉगिन</a>
+    <span class="separator">|</span>
+    <div id="google_translate_element"></div>
+    </div>
+  </div>
+
+    <header class="site-header">
+        <h1 data-aos="fade-down"><strong>ग्रामपंचायत महादेवनगर</strong></h1>
+        <p data-aos="fade-up"><strong>तालुक- त्र्यंबकेश्वर,  जिल्हा - नाशिक</strong> </p>
+    </header>
+
+    <nav class="navbar">
+        <div class="mobile-nav-toggle" aria-expanded="false">☰</div>
+
+        <ul id="main-nav">
+            <li><a href="index.html">🏠 मुख्यपृष्ठ</a></li>
+            <li><a href="about.html">ℹ️ आमच्याबद्दल</a></li>
+            <li><a href="organisation.html">👥 संघटना</a></li>
+            <li><a href="services.html">🤝 सेवा</a></li>
+            <li><a href="schemes.html">📍 योजना</a></li>
+            <li><a href="gallery.html">🖼️ गॅलरी</a></li>
+            <li class="active"><a href="#">📞 संपर्क</a></li>
+             <li><a href="#complaint" data-bs-toggle="modal" data-bs-target="#complaintModal">📢 तक्रार</a></li>  
+            
+        </ul>
+
+       
+    </nav>
+
+    <section class="welcome-section-about">
+        <div data-aos="fade-right" class="info-card">
+            <h2 class="section-title-about">आमच्याशी संपर्क करा</h2>
+                    <div class="contact-info-contact">
+                    <p><strong>पत्ता :</strong>  महादेवनगर पोस्ट, ता. त्र्यंबकेश्वर (नाशिक) . </p>
+                    <p><strong>फोन :</strong> +91-1234567890</p>
+                    <!-- <p><strong>फॅक्स :</strong> +91-020-87654321</p> -->
+                    <p><strong>ईमेल :</strong>  murlidhargavitgavit@gmail.com</p> 
+                    <!-- <p><strong>मार्गदर्शन मिळवा :</strong> Open in Google Maps</p> -->
+                    <p><strong>कार्यालय वेळ :</strong> सकाळी १०:३० ते सायंकाळी ५:३० वाजे पर्यंत.</p>
+                    </div>
+
+           
+
+            
+                
+           
+        </div>
+
+        
+    </section>
+
+
+
+      
+    <div class="modal fade" id="complaintModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">तक्रार / सूचना</h5>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+          <form id="complaintForm">
+            <div class="mb-3">
+              <label class="form-label" >नाव :</label>
+              <input type="text" class="form-control" id="complainterName" placeholder="आपले पूर्ण नाव भरा" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">मोबाईल नंबर :</label>
+              <input type="number" class="form-control" id="complainterNumber" placeholder="आपला मोबाईल नंबर भरा" required>
+            </div>
+
+            <!-- <div class="mb-3">
+              <label class="form-label required">तक्रार / सूचना प्रकार :</label>
+              <select class="form-control" id="reasonDropdown">
+                <option value="">-- निवडा --</option>
+                <option value="complaint">पाणी प्रश्न</option>
+                <option value="suggestion">स्वच्छता</option>
+                <option value="complaint">गटार चेंबर</option>
+                <option value="suggestion">रस्ते वाहतूक</option>
+                <option value="complaint">पथ दिवे</option>
+                <option value="suggestion">घंटा गाडी</option>
+                <option value="complaint">इतर</option>
+                
+              </select>
+            </div> -->
+
+            <div class="mb-3">
+              <label class="form-label">तक्रार / सूचना निवडा :</label>
+              <select class="form-control" id="reasonDropdown">
+                <option value="" required>-- निवडा --</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">वर्णन :</label>
+              <textarea class="form-control" id="comlaintDesc" rows="3" placeholder="समस्या तपशीलवार लिहा" required></textarea>
+            </div>
+          </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit" form="complaintForm">Send</button>
+          <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    
+
+
+        <div id="logos"> 
+        <div data-aos="fade-up" class="govtlogos">
+          <img class="govlogo" src="images/apleSarkar.png" alt="Aple Sarkar">        
+          <img class="govlogo" src="images/atalBujal.png" alt="Atal Bhujal">
+          <img class="govlogo" src="images/digitalIndia.png" alt="Digital India">
+          <img class="govlogo" src="images/g20.png" alt="G 20">
+          <img class="govlogo" src="images/gramVikas.png" alt="Gram Vikas">
+          <img class="govlogo" src="images/mahaShasan.png" alt="Maha shasan">
+          <img class="govlogo" src="images/panchayat.png" alt="Panchayat Raj">
+          <img class="govlogo" src="images/vasundhara.png" alt="Vasundhara">        
+          <img class="govlogo" src="images/panchayat.png" alt="Panchayat">
+          <img class="govlogo" src="images/satyamevaJayate.png" alt="Satyameva Jayate">
+          <img class="govlogo" src="images/jalayuktaShivar.png" alt="Jalyukta Shivar">
+        </div>
+      </div>
+      <!-- </section> -->
+
+    <section class="footer-info">
+  <div class="footer-container">
+
+    <!-- Column 1 -->
+    <div class="footer-col">
+      <h3>महत्वाच्या लिंक</h3>
+      <ul>
+        <li> <a href="https://gr.maharashtra.gov.in/1145/Government-Resolutions" target="_blank" rel="noopener noreferrer">थाशन निर्णय</a></li>
+        <li><a href="https://zpnashik.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">नाशिक जिल्हा परिषद</a></li>
+        <li><a href="https://maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">महाराष्ट्र शासन</a></li>
+        <li><a href="https://www.mahaonline.gov.in/" target="_blank" rel="noopener noreferrer">महा ऑनलाइन</a></li>
+        <li><a href="https://nashik.gov.in/en/services/rti/" target="_blank" rel="noopener noreferrer">माहिती अधिकार</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="footer-col">
+      <h3>महत्वाच्या लिंक</h3>
+      <ul>
+        <li><a href="https://ceoelection.maharashtra.gov.in/ceo/" target="_blank" rel="noopener noreferrer">मतदार यादीत नाव शोधण्यासाठी</a></li>
+        <li><a href="https://mahadbtmahait.gov.in/Farmer/AgriLogin/AgriLogin" target="_blank" rel="noopener noreferrer">कृषी विभाग महाडीबीटी</a></li>
+        <li><a href="https://bhulekh.mahabhumi.gov.in/" target="_blank" rel="noopener noreferrer">7/12 उतारा</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="footer-col">
+      <h3>सोशल मीडिया</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-col">
+      <h3>पत्ता</h3>
+      <p>मु. पो. महादेवनगर, तालुक: त्र्यंबकेश्वर, जिल्हा: नाशिक <br>पिन : 422000</p>
+      <p><strong>GET DIRECTIONS</strong></p>
+      <p>मोबाईल : +91 1234567890</p>
+      <p><strong>029383</strong></p>
+    </div>
+
+  </div>
+</section>
+
+
+
+     <footer>
+    <div class="wrap f-wrap">
+      <div style="display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap">
+        <div style="font-weight:700">© <span id="year"></span> Gram Panchayat</div>
+        <div class="light">All rights reserved</div>
+      </div>
+      <small class="light"> Developed By SmartTech Services | +91 8484836988  - Designed with care • Responsive • Bilingual</small>
+    </div>
+  </footer>
+
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const menu = document.querySelector('nav ul#main-nav');
+  const menuLinks = document.querySelectorAll('nav ul#main-nav li a');
+
+  // Guard: if elements are missing (e.g. different page), exit gracefully
+  if (!toggle || !menu) return;
+
+  // Toggle menu on hamburger click
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('show');       // add/remove .show
+    toggle.setAttribute('aria-expanded', isOpen);       // accessibility
+    // Optional: change icon from ☰ to ✖
+    toggle.textContent = isOpen ? '✖' : '☰';
+  });
+
+  // Close menu when any link clicked (for SPA behaviour or anchor links)
+  if (menuLinks.length) {
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+  }
+
+
+
+
+
+  // Optional: close menu if user taps/clicks outside the nav when open
+  document.addEventListener('click', (e) => {
+    if (!menu.classList.contains('show')) return;
+    if (!e.target.closest('nav')) {
+      menu.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    }
+  });
+
+  // Optional: allow keyboard toggle via Enter/Space when focused
+  toggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle.click();
+    }
+  });
+});
+</script>
+
+    <script>
+    AOS.init({
+        duration: 1000,   // Animation duration (ms)
+        once: true        // Run animation only once
+    });
+    </script>
+</body>
+</html>

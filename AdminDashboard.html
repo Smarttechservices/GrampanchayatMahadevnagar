@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="images/GramLogo.png" type="image/x-icon">
+    <title>ॲडमिन लॉगिन</title>
+   
+  <!--Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Font -->
+     <meta name="google" content="notranslate">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons (FontAwesome or similar) -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f0f0;
+            justify-content: center;
+            /* padding: 30px; */            
+  /* overflow: hidden;   prevent scroll inside */
+        }
+
+  
+
+     /* SECTIONS */
+    section{padding:42px 0; min-height: 70vh; margin-bottom: 25px;}
+    .section-title-dashboard{display:flex; justify-content: center; align-items:center;gap:12px;margin-bottom:18px}
+    .section-title-dashboard h2{margin-bottom:15px;}
+    /* .muted{color:var(--muted);font-size:14px}
+    .light{color:var(--light);font-size:14px} */
+
+    .btn.btn-primary{
+            margin: 25px;
+    }
+
+    
+    .table.table-striped{
+            margin: 25px;
+    
+    }
+
+    #adminDasboard {
+    position: fixed;
+    top: 30px;
+    bottom: 30px;
+    width: calc(100% - 60px); /* 30px margin left + 30px margin right */
+    left: 30px;
+    box-sizing: border-box;  /* includes padding/border inside width */
+    overflow: auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    }
+
+
+    .modal-header {
+  position: relative;
+}
+.modal-header .btn-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/*---------------------------------------------------------------------------------------*/
+/* 
+#galleryListContainer {
+  padding: 10px;
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-card {
+  width: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  background: #fff;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 150px;          
+  object-fit: cover;       
+}
+
+.gallery-card .caption {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 6px;
+  font-size: 14px;
+  font-weight: 500;
+} */
+
+
+/*---------------------------------------------------------------------------------------*/
+
+  .gallery-item-dashboard {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .gallery-item-dashboard:hover {
+    transform: scale(1.03);
+  }
+
+  .card-body {
+    background-color: #000;  
+  }
+
+  .card-text {
+    color: #fff;
+  }
+
+
+
+  
+/* ----- Notice Card Container ----- */
+#noticeListContainer {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* ----- Individual Card Styling ----- */
+.notice-item {
+  border: none;
+  border-radius: 16px;
+  display:flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+  padding: 16px;
+}
+
+.notice-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ----- Card Header ----- */
+.notice-item .card-header {
+  background-color: #e9f2ff;
+  color: #0d6efd;
+  font-weight: 600;
+  font-size: 1rem;
+  border-bottom: 1px solid #d6e4ff;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+  padding: 8px 0;
+}
+
+/* ----- Card Content Layout ----- */
+.notice-item .row {
+  margin: 0.5rem 0;
+  align-items: center;
+}
+
+.notice-item h5 {
+  font-size: 0.95rem;
+  color: #495057;
+  font-weight: 600;
+  margin: 0;
+}
+
+.notice-item p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+
+    </style>
+
+    <meta name="google" content="notranslate">
+   
+</head>
+
+<body>
+
+   
+
+    <header class="site-header">
+        <h1 data-aos="fade-down"><strong>ग्रामपंचायत महादेवनगर</strong></h1>
+        <p data-aos="fade-up"><strong>तालुक- येवला,  जिल्हा - नाशिक</strong> </p>
+    </header>
+
+   
+
+    <div id="adminDashboard">
+        <section>
+            <h2 class="section-title-dashboard">Admin Dashboard</h2>
+
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal" id="btnUpload">Upload Gallery Image</button>
+            <button id="btnOpenDeleteModal" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteGalleryModal" >Delete Image</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#noticeModal" id="btnNotice">Add Notice</button>
+            <button id="btnOpenNoticeDeleteModal" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNoticeModal" >Delete Notice</button>
+
+            <div id="complaintTableSection">
+                <h3 class="text-center" style="margin-top: 30px;">Submitted Complaints</h3>
+                <div class="mobile-scroll">
+                <table class="table table-striped" style="margin-right:260px;" border="2" id="complaintsTable">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>Action</th>
+                            <th>Id</th>
+                            <th>Status</th>
+                            <th>Name</th>
+                            <th>Number</th>
+                            <th>Reason</th>
+                            <th>Description</th>
+                            <th>Created Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Complaints will be populated here -->
+                        </tbody>
+                    </table> 
+                    </div>  
+             </div>    
+
+        </section>
+    </div>
+
+    
+      <div class="modal" id="uploadModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 data-i18n="imgLabel" class="modal-title">Image Upload</h5>
+              <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <form id="uploadForm">
+                <div class="mb-3">
+                  <lable data-i18n="imgTitleLabel" class="form-label required" >Title :</lable>
+                  <input type="text" data-i18n="nametextLabel" id="imageTitle" class="form-control" placeholder="Enter Title of the Image" required>
+                </div>
+                <div class="mb-3">
+                  <lable data-i18n="imgCaptionLabel" class="form-label" >Caption :</lable>
+                  <input type="text" data-i18n="nametextLabel" id="imageCaption" class="form-control" placeholder="Enter Caption of the Image" required>
+                </div>
+                <div class="mb-3">
+                  <lable  class="form-label" for="uploadImage" data-i18n="imgUploadLabel">Upload Image :</lable>
+                  <div class="custom-file">
+                    <!-- <input class="custom-file-input" id="imageFile"  type="file" /> -->
+                    <input class="form-control form-control-sm" id="imageFile" type="file" required/>                    
+                  </div>
+                </div>
+             
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-i18n="submitLabel" type="submit" >Submit</button>
+                <button class="btn btn-danger" id="closebtn" data-bs-dismiss="modal">Close</button>
+            </div>
+             </form>
+          </div>
+        </div>
+      </div>
+
+
+
+              
+      
+
+  <!-- Modal: To list images and allow selection for deletion -->
+   <div class="modal fade" id="deleteGalleryModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Select Image to Delete</h5>
+        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="galleryLoading">Loading...</div>
+        <div id="galleryListContainer" class="container-fluid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal: lightbox / image + delete confirmation -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Confirm Delete</h5>
+          <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="deletePreview" src="" class="img-fluid mb-2" />
+          <p id="deleteCaption"></p>
+          <button id="confirmDeleteBtn" class="btn btn-danger mt-3">Delete</button>
+          <button class="btn btn-secondary mt-3" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>     
+
+
+  
+    
+      <div class="modal" id="noticeModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 data-i18n="imgLabel" class="modal-title">सूचना</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <form id="noticeForm">
+                <div class="mb-3">
+                  <lable data-i18n="noticeTitleLabel" class="form-label required" >सूचना शीर्षक:</lable>
+                  <input type="text" data-i18n="nametextLabel" id="noticeTitle" class="form-control" placeholder="सूचनेचे शीर्षक टाका." required>
+                  <span class="noticeError"></span> 
+                </div>
+                <div class="mb-3">
+                  <lable data-i18n="noticeVenueLabel" class="form-label required" >ठिकाण  :</lable>
+                  <input type="text" data-i18n="nametextLabel" id="noticeCaption" class="form-control" placeholder="बैठकीचे ठिकाण टाका." required>
+                  <span class="noticeError" ></span> 
+                </div>
+                 <div class="mb-3">
+                  <lable data-i18n="noticeDescLabel" class="form-label required" >वर्णन :</lable>
+                  <input type="text" data-i18n="nametextLabel" id="noticeDescription" class="form-control" placeholder="सूचनेचे वर्णन करा." required>
+                  <span class="noticeError" ></span> 
+                </div>
+             
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-i18n="submitLabel" type="submit" >Submit</button>
+                <button class="btn btn-danger" data-bs-dismiss="modal" type="submit">Close</button>
+            </div>
+             </form>
+          </div>
+        </div>
+      </div>
+                 
+      
+
+  <!-- Modal: To list images and allow selection for deletion -->
+   <div class="modal fade" id="deleteNoticeModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>सूचना हटवा</h5>
+        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="noticeLoading">Loading...</div>
+        <div id="noticeListContainer" class="container-fluid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal: lightbox / image + delete confirmation -->
+  <div class="modal fade" id="confirmDeleteNoticeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Confirm Delete</h5>
+          <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <p id="noticeDeletePreviewID" class="modal-content"></p>
+          <p id="noticeDeletePreviewTitle" class="modal-content"></p>
+          <p id="noticeDeletePreviewVenue" class="modal-content"></p>
+          <p id="noticeDeletePreviewDescription" class="modal-content"></p>
+          <button id="noticeConfirmDeleteBtn" class="btn btn-danger mt-3">Delete</button>
+          <button class="btn btn-secondary mt-3" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+     <footer>
+    <div class="wrap f-wrap">
+      <div style="display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap">
+        <div style="font-weight:700">© <span id="year"></span> Gram Panchayat</div>
+        <div class="light">All rights reserved</div>
+      </div>
+      <small class="light"> Developed By SmartTech Services | +91 8484836988  - Designed with care • Responsive • Bilingual</small>
+    </div>
+  </footer>
+    <!-- <script src="script.js"></script> -->
+     <script src="config.js"></script>
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script src="lightbox-plus-jquery.js"></script>
+    <script>
+    AOS.init({
+        duration: 1000,   // Animation duration (ms)
+        once: true        // Run animation only once
+    });
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+            pageLanguage: 'mr', // or 'mr' if your original site is in Marathi
+            includedLanguages: 'en,hi,mr', // ✅ Add 'mr' for Marathi
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+     </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
+    <script>          
+            
+ 
+    // Fetch protected admin data
+
+    
+      const apiPath = window.APP_CONFIG.apiBaseUrl;
+    fetch(apiPath + "Admin/dashboard", {
+    // fetch("https://localhost:7235/api/Admin/dashboard", {
+    headers: {
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+    }
+    })
+    .then(res => {
+    if (res.status === 401) {
+        // window.location.href = "AdminDashboard.html";
+        localStorage.removeItem("token"); // clear bad token
+        window.location.href = "admin-login.html"; // redirect to login page
+        return;
+    }
+    return res.json();
+    })
+    .then(data => {
+    console.log("Secure data:", data);
+    });
+
+
+
+    function showAdminDashboard() {
+        document.getElementById("adminDashboard").style.display = "block";
+        loadComplaints();
+    }
+
+        
+    //Image Upload Form 
+    document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const title = document.getElementById('imageTitle').value;
+    const caption = document.getElementById('imageCaption').value;
+    const fileInput = document.getElementById('imageFile');
+    if (fileInput.files.length === 0) {
+        alert('Select a file');
+        return;
+    }
+    const formData = new FormData();
+    formData.append('File', fileInput.files[0]);
+    formData.append('title', title);
+    formData.append('caption', caption);
+
+    const token = localStorage.getItem('token');
+    
+      const apiPath = window.APP_CONFIG.apiBaseUrl;
+      const resp = await fetch(apiPath + 'galleryImage/Upload', {
+    // const resp = await fetch('https://localhost:7235/api/galleryImage/Upload', {
+        method: 'POST',
+        headers: {
+        'Authorization': 'Bearer ' + token
+        // note: do not set Content-Type, browser auto sets multipart boundary
+        },
+        body: formData
+    });
+    if (!resp.ok) {
+        alert('Upload failed!');
+        return;
+    }
+    const res = await resp.json();
+    alert('Image Uploaded Successfully!');    
+    document.getElementById('uploadForm').reset();
+    // Optionally, refresh gallery view or redirect
+    loadGallery();
+    });
+
+    
+
+
+    // Load Uploaded Images to the Gallery Section
+
+
+    async function loadGallery() {
+    try {
+        // Replace with your correct API URL
+        const apiPath = window.APP_CONFIG.apiBaseUrl;
+        const resp = await fetch(apiPath + 'galleryImage');
+        // const resp = await fetch('https://localhost:7235/api/galleryImage');
+        if (!resp.ok) {
+        console.error('Gallery fetch failed', resp.status, await resp.text());
+        return;
+        }
+        const images = await resp.json();
+        renderGallery(images);
+    } catch (err) {
+        console.error('Error fetching gallery', err);
+    }
+    }
+
+
+
+/* ----------rendering gallery images with backend--------------- */
+    function renderGallery(images) {
+    const galleryGrid = document.getElementById('galleryGrid');
+    if (!galleryGrid) {
+        console.error('No #galleryGrid element found');
+        return;
+    }
+
+    // Clear existing content
+    galleryGrid.innerHTML = '';
+
+    images.forEach(img => {
+        // img.filepath is something like "/gallery/unique-filename.jpg"
+        // Compose full URL if needed (for example, if your API is on another domain)
+        const src = img.filepath;  
+        const caption = img.caption || '';
+        const title = img.title || '';
+
+        // Create anchor element for lightbox
+        const anchor = document.createElement('a');
+        anchor.href = src;
+        anchor.setAttribute('data-lightbox', 'models');
+        anchor.setAttribute('data-title', caption);
+
+        // Create image element
+        const imageEl = document.createElement('img');
+        imageEl.classList.add('gimg');
+        imageEl.src = src;
+        imageEl.alt = title;
+
+        // Append
+        anchor.appendChild(imageEl);
+        galleryGrid.appendChild(anchor);
+    });
+    }
+
+    
+   
+
+
+/********************************************
+ *  📋 COMPLAINTS TABLE HANDLING
+ ********************************************/
+window.onload = function () {
+  loadComplaints();
+};
+
+async function loadComplaints() {
+  const tbody = document.querySelector('#complaintsTable tbody');
+
+  try {
+    const token = localStorage.getItem('adminToken');
+  const apiPath = window.APP_CONFIG.apiBaseUrl;
+   const resp = await fetch(apiPath + 'Complaint',{
+      headers: { 'Authorization': 'Bearer ' + token }
+    });
+    const arr = await resp.json();
+
+    tbody.innerHTML = '';
+    arr.forEach(c => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td></td>
+        <td>${c.id}</td>
+        <td style="color:${c.status === 'Solved' ? 'green' : 'gray'};"><strong>${c.status}</strong></td>
+        <td>${c.name}</td>
+        <td>${c.number}</td>
+        <td>${c.reason}</td>
+        <td>${c.description}</td>
+        <td>${formatDateTime(c.createdDate)}</td>
+      `;
+
+      const actionCell = tr.firstElementChild;
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.className = 'btn btn-sm btn-danger';
+      deleteBtn.style.marginLeft = '8px';
+
+      const statusBtn = document.createElement('button');
+      statusBtn.textContent = 'Status';
+      statusBtn.className = 'btn btn-sm btn-success';
+      statusBtn.style.marginLeft = '8px';
+
+
+      // Disabled solve button if already solved
+      if (c.status === 'Solved') {
+        statusBtn.disabled = true;
+        statusBtn.classList.add('disabled');
+      }
+
+
+      deleteBtn.addEventListener('click', () => {
+        if (confirm(`Are you sure you want to delete Complaint ID ${c.id}?`)) {
+        const apiPath = window.APP_CONFIG.apiBaseUrl;
+          fetch(apiPath + `complaint/${c.id}`,{
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+          })
+            .then(res => {
+              if (!res.ok) throw new Error('Delete failed');
+              alert("Complaint deleted successfully");
+              loadComplaints();
+            })
+            .catch(err => {
+              console.error('Delete error:', err);
+              alert('Failed to delete complaint.');
+            });
+        }
+      });
+
+
+       statusBtn.addEventListener('click', async () => {
+        if (confirm(`Mark Complaint ID ${c.id} as solved?`)) {
+          const res = await fetch(apiPath + `complaint/changeStatus/${c.id}`, {
+            method: 'PUT',
+            headers: { 'Authorization': 'Bearer ' + token }
+          });
+          if (res.ok) {
+            alert('Complaint Marked as solved!');
+            loadComplaints();
+          } else {
+            alert('Failed to Mark complaint as solved.');
+          }
+        }
+      });
+
+
+
+      actionCell.appendChild(deleteBtn);
+      actionCell.appendChild(statusBtn);
+      tbody.appendChild(tr);
+    });
+  } catch (err) {
+    tbody.innerHTML = `<tr><td colspan="8">Failed to load complaints.</td></tr>`;
+  }
+}
+
+function formatDateTime(dateStr) {
+  const date = new Date(dateStr);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12 || 12;
+  return `${day}/${month}/${year} ${hours}:${minutes} ${ampm}`;
+}
+
+
+
+
+
+/********************************************
+ *  🗑️ DELETE IMAGE FROM GALLERY
+ ********************************************/
+const deleteGalleryModal = new bootstrap.Modal(document.getElementById('deleteGalleryModal'));
+const confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+document.getElementById("btnOpenDeleteModal").addEventListener("click", function () {
+  // $("#deleteGalleryModal").modal("show");
+
+  deleteGalleryModal.show();
+  loadGalleryImages();
+});
+
+function loadGalleryImages() {
+  const container = document.getElementById("galleryListContainer");
+  const loader = document.getElementById("galleryLoading");
+
+  container.innerHTML = "";
+  loader.style.display = "block";
+
+  // fetch('https://localhost:7235/api/galleryImage')
+  const apiPath = window.APP_CONFIG.apiBaseUrl;
+  const apiImgPath = window.APP_CONFIG.apiImgUrl;
+    fetch(apiPath + 'galleryImage')
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to load images");
+      return res.json();
+    })
+    .then(data => {
+      loader.style.display = "none";
+      data.sort((a, b) => b.id - a.id);
+
+      let row;
+      data.forEach((img, index) => {
+        const fullUrl = apiImgPath + img.filepath;
+        const caption = img.caption || '';
+        const title = img.title || '';
+
+        if (index % 4 === 0) {
+          row = document.createElement("div");
+          row.className = "row mb-4";
+          container.appendChild(row);
+        }
+
+        const col = document.createElement("div");
+        col.className = "col-md-6 col-sm-12 mb-3 text-center";
+        col.innerHTML = `
+          <div class="card h-100 gallery-item-dashboard" onclick="onSelectGalleryItem(${img.id}, '${fullUrl}', \`${caption}\`)">
+            <img src="${fullUrl}" class="card-img-top img-fluid" alt="${title}" />
+            <div class="card-body p-2 bg-dark text-white">
+              <small class="card-text">${caption}</small>
+            </div>
+          </div>
+        `;
+        row.appendChild(col);
+      });
+    })
+    .catch(err => {
+      loader.style.display = "none";
+      console.error("Error loading gallery images:", err);
+      container.innerHTML = "<p>Error loading images.</p>";
+    });
+}
+
+let selectedImageId = null;
+
+function onSelectGalleryItem(id, imgUrl, caption) {
+  selectedImageId = id;
+  document.getElementById('deletePreview').src = imgUrl;
+  document.getElementById('deleteCaption').textContent = caption || "No caption available";
+  // $('#confirmDeleteModal').modal('show');
+   confirmDeleteModal.show();
+}
+
+document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+  if (!selectedImageId) return;
+
+  const apiPath = window.APP_CONFIG.apiBaseUrl;
+   fetch(apiPath + `galleryImage/${selectedImageId}`,{
+    method: 'DELETE'
+  })
+    .then(res => {
+      if (!res.ok) throw new Error('Delete failed');
+      return res.json();
+    })
+    .then(() => {
+      alert("Image deleted successfully");
+      // $('#confirmDeleteModal').modal('hide');
+      confirmDeleteModal.hide();
+      loadGalleryImages();
+    })
+    .catch(err => {
+      console.error('Delete error:', err);
+      alert('Failed to delete image.');
+    });
+});
+
+
+
+
+
+// sending Notices From Admin dashboard to Display on site
+
+document.getElementById("noticeForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const localCreatedDate = getLocalISOString();  
+
+  const notice = {
+    title: document.getElementById("noticeTitle").value,
+    venue: document.getElementById("noticeCaption").value,
+    description: document.getElementById("noticeDescription").value,
+    submittedDate: localCreatedDate,
+  };
+
+  try {
+    const apiPath = window.APP_CONFIG.apiBaseUrl;
+    const response = await fetch(apiPath + "Notice/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(notice)
+    });
+
+    const result = await response.json();
+    alert(result.message || "Notice submitted successfully");
+
+    // Reset form
+    document.getElementById("noticeForm").reset();
+    // Close modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById("noticeModal"));
+    modal.hide();
+
+    // Refresh the notice list (if showing on dashboard)
+    // loadNotices();   -----In future
+
+  } catch (err) {
+    console.error("Error submitting notice:", err);
+  }
+});
+
+
+
+function getLocalISOString() {
+  const now = new Date();
+  const tzOffset = -now.getTimezoneOffset();
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = n => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
+  return (
+    now.getFullYear() +
+    '-' + pad(now.getMonth() + 1) +
+    '-' + pad(now.getDate()) +
+    'T' + pad(now.getHours()) +
+    ':' + pad(now.getMinutes()) +
+    ':' + pad(now.getSeconds()) +
+    diff + pad(tzOffset / 60) + ':' + pad(tzOffset % 60)
+  );
+}
+
+
+/********************************************
+ *  🗑️ DELETE Notice FROM Strip
+ ********************************************/
+document.getElementById("btnOpenNoticeDeleteModal").addEventListener("click", function () {
+  $("#deleteNoticeModal").modal("show");
+  loadNotices();
+});
+
+function loadNotices() {
+  const container = document.getElementById("noticeListContainer");
+  const loader = document.getElementById("noticeLoading");
+
+  container.innerHTML = "";
+  loader.style.display = "block";
+
+  const apiPath = window.APP_CONFIG.apiBaseUrl;
+    fetch(apiPath + 'Notice')
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to load Notices");
+      return res.json();
+    })
+    .then(data => {
+      loader.style.display = "none";
+      data.sort((a, b) => b.id - a.id);
+
+      let row;
+      data.forEach((notice, index) => {
+        const venue = notice.venue || '';
+        const title = notice.title || '';
+        const description = notice.description || '';
+
+        if (index % 4 === 0) {
+          row = document.createElement("div");
+          row.className = "row mb-4";
+          container.appendChild(row);
+        }
+
+        const col = document.createElement("div");
+        col.className = "col-md-12 col-sm-6 mb-3 text-center";
+        col.innerHTML = `
+          <div class="card h-100 notice-item" onclick="onSelectNoticeItem(${notice.id},'${title}','${venue}','${description}')">
+            <div class="card-header" style:"background-color:var(--primary)">Notices</div>
+            <div class="row">
+            <h5 class ="card-title col-md-6">Notice Id :-</h5>           
+            <p class ="card-text  col-md-6"> ${notice.id}</p>
+             </div>
+           <div class="row">
+             <h5 class="card-title  col-md-6">Notice Title :-</h5>           
+             <p class="card-text  col-md-6"> ${title}</p>
+            </div> 
+           <div class="row">
+            <h5 class="card-title col-md-6 ">Notice Venue :-</h5>
+            <p class="card-text col-md-6">${venue}</p>
+            </div> 
+           <div class="row">
+            <h5 class="card-title col-md-6">Notice Description :-</h5>
+            <p class="card-text col-md-6">${description}</p>  
+           </div>          
+          </div>
+        `;
+        row.appendChild(col);
+      });
+    })
+    .catch(err => {
+      loader.style.display = "none";
+      console.error("Error loading Notices:", err);
+      container.innerHTML = "<p>Error loading Notices.</p>";
+    });
+}
+
+let selectedNoticeId = null;
+
+function onSelectNoticeItem(id,title,venue,description) {
+  selectedNoticeId = id;
+  document.getElementById('noticeDeletePreviewID').textContent = id;
+  document.getElementById('noticeDeletePreviewTitle').textContent = title || "No Title available";
+  document.getElementById('noticeDeletePreviewVenue').textContent = venue || "No Venue available";
+  document.getElementById('noticeDeletePreviewDescription').textContent = description || "No Description available";
+  $('#confirmDeleteNoticeModal').modal('show');
+}
+
+document.getElementById('noticeConfirmDeleteBtn').addEventListener('click', () => {
+  if (!selectedNoticeId) return;
+
+  const apiPath = window.APP_CONFIG.apiBaseUrl;
+   fetch(apiPath + `Notice/${selectedNoticeId}`,{
+    method: 'DELETE'
+  })
+    .then(res => {
+      if (!res.ok) throw new Error('Delete failed');
+      return res.json();
+    })
+    .then(() => {
+      alert("Notice deleted successfully");
+      $('#confirmDeleteNoticeModal').modal('hide');
+      loadNotices();
+    })
+    .catch(err => {
+      console.error('Delete error:', err);
+      alert('Failed to delete image.');
+    });
+});
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+  </script>
+</body>
+</html>
