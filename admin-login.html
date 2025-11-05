@@ -238,12 +238,17 @@
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const apiPath = window.APP_CONFIG.apiBaseUrl;
-        const resp = await fetch( apiPath + 'admin/login', {
-        // const resp = await fetch('https://localhost:7235/api/admin/login', {
+     //   const resp = await fetch( apiPath + 'admin/login', {
+     //     method: 'POST',
+      //    headers: { 'Content-Type': 'application/json' },
+      //    body: JSON.stringify({ username, password })
+      //  });
+
+       const resp = await fetchWithTimeout(apiPath + 'admin/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, password })
-        });
+          // body: JSON.stringify({ username, password })
+          body: JSON.stringify({ username, password })}, 60000);
 
         if (!resp.ok) {
           message.style.color = "red";
@@ -264,3 +269,4 @@
 </body>
 
 </html>
+
