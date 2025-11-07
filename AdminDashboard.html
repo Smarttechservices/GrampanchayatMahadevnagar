@@ -408,13 +408,13 @@
     fetch(apiPath + "Admin/dashboard", {
     // fetch("https://localhost:7235/api/Admin/dashboard", {
     headers: {
-        "Authorization": `Bearer ${localStorage.getItem("token")}`
+        "Authorization": `Bearer ${localStorage.getItem("adminToken")}`
     }
     })
     .then(res => {
     if (res.status === 401) {
         // window.location.href = "AdminDashboard.html";
-        localStorage.removeItem("token"); // clear bad token
+        localStorage.removeItem("adminToken"); // clear bad token
         window.location.href = "admin-login.html"; // redirect to login page
         return;
     }
@@ -447,7 +447,7 @@
     formData.append('title', title);
     formData.append('caption', caption);
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('adminToken');
     
       const apiPath = window.APP_CONFIG.apiBaseUrl;
       const resp = await fetch(apiPath + 'galleryImage/Upload', {
@@ -914,4 +914,5 @@ document.getElementById('noticeConfirmDeleteBtn').addEventListener('click', () =
 
   </script>
 </body>
+
 </html>
