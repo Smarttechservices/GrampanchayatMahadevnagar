@@ -448,9 +448,10 @@
 
         // success: open dashboard in new tab
      //   window.open("Admindashboard.html", "_blank");
-        window.location.href = window.location.origin + '/GrampanchayatMahadevnagar/AdminDashboard.html';
+        window.location.href = window.location.origin + '/GrampanchayatMahadevnagar/AdminDashboard.html',"_blank";
        
-      } catch (error) {
+      } 
+      catch (error) {
         // message.textContent = "Server not responding. Please try again later.";
         // console.error("Login error:", error);
 
@@ -461,11 +462,12 @@
           }
           console.error("Login error:", error);
 
-      } finally {
+      } 
+ //     finally {
         // always clear loader / enable button (closing will also reset but keep this safe)
-        if (loaderOverlay) loaderOverlay.style.display = "none";
-        if (loginBtn) loginBtn.disabled = false;
-      }
+ //       if (loaderOverlay) loaderOverlay.style.display = "none";
+ //       if (loginBtn) loginBtn.disabled = false;
+//      }
     });
   }
 
@@ -490,4 +492,5 @@
 </body>
 
 </html>
+
 
