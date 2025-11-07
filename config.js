@@ -1,4 +1,5 @@
 window.APP_CONFIG = {
-  apiBaseUrl: "https://GrampanchayatMahadevNagar_Backend.onrender.com/api/",
-  apiImgUrl:"https://GrampanchayatMahadevNagar_Backend.onrender.com/"
+  apiBaseUrl:"https://grampanchayatmahadevnagar-backend.onrender.com/api/",
+  apiImgUrl:"https://grampanchayatmahadevnagar-backend.onrender.com/"
 };
+
