@@ -447,8 +447,8 @@
         localStorage.setItem('adminToken', data.token);
 
         // success: open dashboard in new tab
-        window.open("Admindashboard.html", "_blank");
-
+     //   window.open("Admindashboard.html", "_blank");
+        window.location.href = window.location.origin + '/GrampanchayatMahadevnagar/AdminDashboard.html';
        
       } catch (error) {
         // message.textContent = "Server not responding. Please try again later.";
@@ -488,4 +488,5 @@
 
      </script>
 </body>
+
 </html>
